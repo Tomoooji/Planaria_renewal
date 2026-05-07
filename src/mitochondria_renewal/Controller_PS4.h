@@ -8,7 +8,7 @@ private:
   
   struct info{
     float angle; // radian
-    int dist; // 0~255 ?
+    int dist; // 0~255
     int turn; // -255(right)~255(left) :ラジアンと同じ
   } data;
 
@@ -18,7 +18,7 @@ private:
     //int ignore_time_button;
   } gain;
   
-  int _filter(int valX, int valY){
+  float _filter(int valX, int valY){
     return sq(valX)+sq(valY) > sq(this->gain.ignore_range_stick)? sqrt(sq(valX)+sq(valY)): 0;
   }
 
@@ -36,8 +36,8 @@ public:
   bool update(){
     if(PS4.isConnected()){
       this->data.angle = atan2(PS4.LStickY(),PS4.LStickX());
-      this->data.dist = _filter(PS4.LStickY(),PS4.LStickX());
-      this->data.turn = _filter(PS4.L2()) - _filter(PS4.R2());
+      this->data.dist = _filter(PS4.LStickY(),PS4.LStickX())*2;
+      this->data.turn = _filter(PS4.L2()) - _filter(PS4.R2())*2;
       return true;
     }
     return false;

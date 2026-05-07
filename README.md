@@ -21,9 +21,9 @@ Planaria_renewal/
 どうもブラウザ上じゃないと図にならないみたい
 ```mermaid
 graph TD;
-PS4Controller -.->　Accelarator;
-PS4Controller --> MecanumDriver; 
-Accelarator -.-> MecanumDriver;
+PS4Controller -->　Accelarator;
+PS4Controller -.-> MecanumDriver; 
+Accelarator --> MecanumDriver;
 MecanumDriver -.-> MotorDriver;
 ```
 ### 各クラスの詳細

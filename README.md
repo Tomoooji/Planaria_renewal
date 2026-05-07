@@ -4,20 +4,21 @@ Planaria(レスコン2号機)をPS4コントローラーで動かそう！
 基本的にこっち(devブランチ)で開発していく。
 
 ## やってみた
-
+### ファイル構成
 ```text
 Planaria_renewal/
 ├─ src/
 │  └─ mitochondria_renewal/
-│     ├─ Accelarator.h
-│     ├─ AnalogMotorDriver.h
-│     ├─ Controller_PS4.h
-│     ├─ MecanumDriver.h
-│     └─ mitochondria_renewal.ino
+│     ├─ mitochondria_renewal.ino   # 本体
+│     ├─ Controller_PS4.h           # 入力受付
+│     ├─ MecanumDriver.h            # 出力割り当て
+│     ├─ AnalogMotorDriver.h        # モタドラ用ライブラリ
+│     └─ Accelarator.h              # 加速度処理
 ├─ LICENSE
 └─ README.md
 ```
-
+### 処理のイメージ
+どうもブラウザ上じゃないと図にならないみたい
 ```mermaid
 graph TD;
 PS4Controller -.->　Accelarator;
@@ -25,7 +26,8 @@ PS4Controller --> MecanumDriver;
 Accelarator -.-> MecanumDriver;
 MecanumDriver -.-> MotorDriver;
 ```
-
+### 各クラスの詳細
+どうもブラウザ上じゃないと図にならないみたい
 ```mermaid
 classDiagram
     direction LR

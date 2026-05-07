@@ -58,10 +58,10 @@ classDiagram
         -AnalogMotorDriver[4] motors;
         -Accelarator~int~ acceler;
         +void begin(
-            const uint8_t pin_FL[],
-            const uint8_t pin_BL[],
-            const uint8_t pin_BR[],
-            const uint8_t pin_FR[]);
+            uint8_t pin_FL[],
+            uint8_t pin_BL[],
+            uint8_t pin_BR[],
+            uint8_t pin_FR[]);
         +void update(float direction, int speed_line, int speed_turn);
         +void move();
     }

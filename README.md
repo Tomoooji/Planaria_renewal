@@ -39,7 +39,7 @@ classDiagram
     MecanumDriver *-- Accelarator
 
     class Controller_PS4{
-        -char[] _mac_address
+        -char[] mac_address
         -InputData input;
         -ConfigData_ps4 config;
         +bool begin();

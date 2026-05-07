@@ -12,18 +12,18 @@ private:
     int turn; // -255(right)~255(left) :ラジアンと同じ
   } data;
 
-  struct gain{
+  struct config{
     int ignore_range_stick;
     int ignore_limit_triger;
     //int ignore_time_button;
-  } config;
+  } gain;
   
   int _filter(int valX, int valY){
-    return sp(valX)+sp(valY) > sq(this->config.ignore_range_stick)? sqrt(sp(valX)+sp(valY)): 0;
+    return sp(valX)+sp(valY) > sq(this->gain.ignore_range_stick)? sqrt(sp(valX)+sp(valY)): 0;
   }
 
   int _filter(int val){
-    return (val > this->config.ignore_limit_triger)? val: 0;
+    return (val > this->gain.ignore_limit_triger)? val: 0;
   }
   
 public:
@@ -45,6 +45,10 @@ public:
 
   const info get_data(){
     return &this->data;
+  }
+
+  config get_gain(){
+    return $this->gain;
   }
 
 };

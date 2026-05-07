@@ -44,7 +44,7 @@ classDiagram
         +bool update();
         +info get_data();
         +config get_gain();
-        -float _filter();
+        -float/int _filter();
     }
     class info{
         <<struct>>

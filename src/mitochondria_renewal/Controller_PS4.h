@@ -6,24 +6,24 @@ class Controller_PS4{
 private:
   const char* mac_address = nullptr;
   
-  struct info{
+  struct InputData{
     float angle; // radian
     int dist; // 0~255
     int turn; // -255(right)~255(left) :ラジアンと同じ
-  } data;
+  } input;
 
-  struct config{
+  struct ConfigData{
     int ignore_range_stick;
     int ignore_limit_triger;
     //int ignore_time_button;
-  } gain;
+  } config;
   
   float _filter(int valX, int valY){
-    return sq(valX)+sq(valY) > sq(this->gain.ignore_range_stick)? sqrt(sq(valX)+sq(valY)): 0;
+    return sq(valX)+sq(valY) > sq(this->config.ignore_range_stick)? sqrt(sq(valX)+sq(valY)): 0;
   }
 
   int _filter(int val){
-    return (val > this->gain.ignore_limit_triger)? val: 0;
+    return (val > this->config.ignore_limit_triger)? val: 0;
   }
   
 public:
@@ -35,20 +35,20 @@ public:
   
   bool update(){
     if(PS4.isConnected()){
-      this->data.angle = atan2(PS4.LStickY(),PS4.LStickX());
-      this->data.dist = _filter(PS4.LStickY(),PS4.LStickX())*2;
-      this->data.turn = _filter(PS4.L2()) - _filter(PS4.R2());
+      this->input.angle = atan2(PS4.LStickY(),PS4.LStickX());
+      this->input.dist = _filter(PS4.LStickY(),PS4.LStickX())*2;
+      this->input.turn = _filter(PS4.L2()) - _filter(PS4.R2());
       return true;
     }
     return false;
   }
 
-  const info& get_data(){
-    return this->data;
+  const InputData& get_input(){
+    return this->input;
   }
 
-  config& get_gain(){
-    return this->gain;
+  ConfigData& get_config(){
+    return this->config;
   }
 
 };

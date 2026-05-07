@@ -12,7 +12,7 @@ private:
     FRONTLEFT,BACKLEFT,BACKRIGHT,FRONTRIGHT
   };
 
-  struct gain{
+  struct ConfigData{
     bool reversed[4];
     int max_speed[4];
   } config;

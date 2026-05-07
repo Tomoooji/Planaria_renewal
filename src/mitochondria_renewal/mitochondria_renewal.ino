@@ -18,9 +18,9 @@ void setup(){
 void loop(){
   if(ds4.update()){
     leg.update(
-        ds4.get_data().angle,
-        ds4.get_data().dist,
-        ds4.get_data().turn
+        ds4.get_input().angle,
+        ds4.get_input().dist,
+        ds4.get_input().turn
     );
     leg.move();
   }

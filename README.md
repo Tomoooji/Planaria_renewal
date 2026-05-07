@@ -45,7 +45,6 @@ classDiagram
         +info get_data();
         +config get_gain();
         -float _filter();
-        -int _filter();
     }
     class info{
         <<struct>>

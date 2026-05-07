@@ -9,7 +9,7 @@ private:
   T _target;
 public:
   Accelarator(const T accel, const T decel):_accel(accel), _decel(decel){}
-  //Accelarator(const T accel):Accelarator(accel, accel){}
+  Accelarator(const T accel):Accelarator(accel, accel){}
   T apply(T current, T target){
     if(target<current+this->_accel && target>current-this->_decel){
       return target;
@@ -21,7 +21,7 @@ public:
       return current-this->_decel;
     }
   }
-  //T apply(T current){return this->apply(current, this->_target);}
+  T apply(T current){return this->apply(current, this->_target);}
   void set_target(T target){this->_target = target;}
 };
 

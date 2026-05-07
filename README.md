@@ -12,13 +12,13 @@ Planaria_renewal/
 │     ├─ mitochondria_renewal.ino   # 本体
 │     ├─ Controller_PS4.h           # 入力受付
 │     ├─ MecanumDriver.h            # 出力割り当て
-│     ├─ AnalogMotorDriver.h        # モタドラ用ライブラリ
-│     └─ Accelarator.h              # 加速度処理
+│     ├─ Accelarator.h              # 加速度処理
+│     └─ AnalogMotorDriver.h        # モタドラ用ライブラリ
 ├─ LICENSE
 └─ README.md
 ```
 ### 処理のイメージ
-どうもブラウザ上じゃないと図にならないみたい
+どうも[ブラウザ上](https://github.com/Tomoooji/Planaria_renewal/tree/example/tomoooji/README.md)じゃないと図にならないみたい
 ```mermaid
 graph TD;
 PS4Controller --> MecanumDriver; 
@@ -27,7 +27,7 @@ MecanumDriver --> Accelarator;
 Accelarator --> MotorDriver;
 ```
 ### 各クラスの詳細
-どうもブラウザ上じゃないと図にならないみたい
+どうも[ブラウザ上](https://github.com/Tomoooji/Planaria_renewal/tree/example/tomoooji/README.md)じゃないと図にならないみたい
 ```mermaid
 classDiagram
     direction LR

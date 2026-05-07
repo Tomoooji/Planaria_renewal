@@ -37,7 +37,7 @@ public:
     if(PS4.isConnected()){
       this->data.angle = atan2(PS4.LStickY(),PS4.LStickX());
       this->data.dist = _filter(PS4.LStickY(),PS4.LStickX())*2;
-      this->data.turn = _filter(PS4.L2()) - _filter(PS4.R2())*2;
+      this->data.turn = _filter(PS4.L2()) - _filter(PS4.R2());
       return true;
     }
     return false;

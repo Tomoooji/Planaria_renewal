@@ -28,6 +28,7 @@ MecanumDriver -.-> MotorDriver;
 
 ```mermaid
 classDiagram
+    direction LR
     Controller *-- info
     Controller *-- config
     Controller ..> MecanumDriver

@@ -4,7 +4,7 @@
 
 class Controller_PS4{
 private:
-  constexpr char* mac_address = nullptr;
+  const char* mac_address = nullptr;
   
   struct info{
     float angle; // radian
@@ -19,7 +19,7 @@ private:
   } gain;
   
   int _filter(int valX, int valY){
-    return sp(valX)+sp(valY) > sq(this->gain.ignore_range_stick)? sqrt(sp(valX)+sp(valY)): 0;
+    return sq(valX)+sq(valY) > sq(this->gain.ignore_range_stick)? sqrt(sq(valX)+sq(valY)): 0;
   }
 
   int _filter(int val){
@@ -27,7 +27,7 @@ private:
   }
   
 public:
-  Controller_PS4(const char mac):mac_address(mac){}
+  Controller_PS4(const char* mac):mac_address(mac){}
   
   bool begin(){
     return PS4.begin(this->mac_address);
@@ -43,12 +43,12 @@ public:
     return false;
   }
 
-  const info get_data(){
-    return &this->data;
+  const info& get_data(){
+    return this->data;
   }
 
-  config get_gain(){
-    return $this->gain;
+  config& get_gain(){
+    return this->gain;
   }
 
 };

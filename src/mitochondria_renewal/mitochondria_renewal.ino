@@ -4,26 +4,28 @@
 constexpr char mac[] = "00:00:00:00:00:00";
 Controller_PS4 ds4(mac);
 
-constexpr uint8_t pin_FR = {};
-constexpr uint8_t pin_BR = {};
-constexpr uint8_t pin_BL = {};
-constexpr uint8_t pin_FL = {};
+constexpr uint8_t FLpin[2] = {1,2};
+constexpr uint8_t BLpin[2] = {1,2};
+constexpr uint8_t BRpin[2] = {1,2};
+constexpr uint8_t FRpin[2] = {1,2};
 Mecanum leg;
 
 void setup(){
   if(!ds4.begin()) return;
-  leg.begin(pin_FR,pin_BR,pin_BL,pin_FL);
+  leg.begin(FLpin,BLpin,BRpin,FRpin);
 }
 
 void loop(){
   if(ds4.update()){
-    leg.move(
+    leg.update(
         ds4.get_data().angle,
         ds4.get_data().dist,
         ds4.get_data().turn
     );
+    leg.move();
   }
   else{
-    leg.move(0,0,0);
+    leg.update(0, 0, 0);
+    leg.move();
   }
 }

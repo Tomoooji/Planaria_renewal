@@ -19,6 +19,14 @@ Planaria_renewal/
 ```
 
 ```mermaid
+graph TD;
+PS4Controller -.->　Accelarator;
+PS4Controller --> MecanumDriver; 
+Accelarator -.-> MecanumDriver;
+MecanumDriver -.-> MotorDriver;
+```
+
+```mermaid
 classDiagram
     Controller *-- info
     Controller *-- config
@@ -26,59 +34,57 @@ classDiagram
     MecanumDriver *-- gain
     MecanumDriver *-- AnalogMotorDriver
     MecanumDriver *-- Accelarator
+
     class Controller{
-        char[] _mac_address
-        info data
-        config gain
-        bool begin()
-        bool update()
+        -char[] _mac_address
+        -info data;
+        -config gain;
+        +bool begin();
+        +bool update();
     }
     class info{
         <<struct>>
-        float angle
-        int dist
-        int turn
+        +float angle;
+        +int dist;
+        +int turn;
     }
     class config{
         <<struct>>
-        int ignore_range_stick;
-        int ignore_limit_triger;
+        +int ignore_range_stick;
+        +int ignore_limit_triger;
     }
     class MecanumDriver{
-        gain config
-        AnalogMotorDriver[4] motors
-        Accelarator~int~ acceler
-        void begin(const uint8_t pin_FL[], const uint8_t pin_BL[], const uint8_t pin_BR[], const uint8_t pin_FR[])
-        void update(float:direction, int: speed_line, int: speed_turn)
-        void move()
+        -gain config;
+        -AnalogMotorDriver[4] motors;
+        -Accelarator~int~ acceler;
+        +void begin(
+            const uint8_t pin_FL[],
+            const uint8_t pin_BL[],
+            const uint8_t pin_BR[],
+            const uint8_t pin_FR[]);
+        +void update(float direction, int speed_line, int speed_turn);
+        +void move();
     }
     class gain{
         <<struct>>
-        bool reversed[4];
-        int max_speed[4];
+        +bool reversed[4];
+        +int max_speed[4];
     }
     class AnalogMotorDriver{
-        const uint8_t[] _pins
-        int _max
-        int _speed
-        void attach()
-        void set_speed()
-        int get_speed()
-        uint8_t get_pin(index)
-        void apply()
+        -const uint8_t[] _pins;
+        -int _max;
+        -int _speed;
+        +void attach();
+        +void apply();
+        +void set_speed();
+        +int get_speed();
     }
     class Accelarator~T~{
-        T apply(T current, T target)
+        +T apply(T current, T target)
     }
 
 ```
 ## 参考資料
-
-```mermaid
-graph TD;
-PS4Controller -->　Accelarator;
-Accelarator --> MecanumWheel;
-```
 
 ### PS4コントローラー用ライブラリ
 

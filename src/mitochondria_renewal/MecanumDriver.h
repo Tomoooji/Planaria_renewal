@@ -1,6 +1,8 @@
+// 4輪オムニと中身は一緒
 #pragma once
 #include <Arduino.h>
 #include "AnalogMotorDriver.h"
+#include "Accelarator.h"
 
 class Mecanum{
 private:
@@ -12,7 +14,7 @@ private:
 
   struct gain{
     bool reversed[4];
-    int max_speed[4];
+    int max_speed[4];//
   } config;
 
 public:

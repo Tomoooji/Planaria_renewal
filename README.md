@@ -41,7 +41,7 @@ classDiagram
     class Controller_PS4{
         -char[] _mac_address
         -InputData input;
-        -ConfigData config;
+        -ConfigData_ps4 config;
         +bool begin();
         +bool update();
         +InputData get_input();

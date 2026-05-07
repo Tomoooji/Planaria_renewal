@@ -30,11 +30,11 @@ Accelarator --> MotorDriver;
 どうも[ブラウザ上](https://github.com/Tomoooji/Planaria_renewal/tree/example/tomoooji/README.md)じゃないと図にならないみたい
 ```mermaid
 classDiagram
-    direction LR
-    Controller_PS4 ..> MecanumDriver
+    direction TD
     Controller_PS4 *-- InputData
-    Controller_PS4 *-- ConfigData_ps4
     MecanumDriver *-- ConfigData_leg
+    Controller_PS4 *-- ConfigData_ps4
+    Controller_PS4 ..> MecanumDriver
     MecanumDriver *-- AnalogMotorDriver
     MecanumDriver *-- Accelarator
 

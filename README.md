@@ -57,11 +57,7 @@ classDiagram
         -gain config;
         -AnalogMotorDriver[4] motors;
         -Accelarator~int~ acceler;
-        +void begin(
-            uint8_t pin_FL[],
-            uint8_t pin_BL[],
-            uint8_t pin_BR[],
-            uint8_t pin_FR[]);
+        +void begin(uint8_t pin_FL[], uint8_t pin_BL[], uint8_t pin_BR[], uint8_t pin_FR[]);
         +void update(float direction, int speed_line, int speed_turn);
         +void move();
     }

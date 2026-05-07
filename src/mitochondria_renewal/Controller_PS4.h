@@ -2,8 +2,6 @@
 #include <Arduino.h>
 #include <PS4Controller.h>
 
-#define NONEDIRECTION 5
-
 class Controller_PS4{
 private:
   constexpr char[] MACAddress = nullptr;
@@ -37,9 +35,9 @@ public:
   
   bool update(){
     if(PS4.isConnected()){
-      this->data.FRBL_speed = stickFilter(PS4.LStickX(),PS4.LStickY()) ? PS4.LStickX()+PS4.LStickY()) : 0;
-      this->data.FLBR_speed = stickFilter(PS4.LStickX(),PS4.LStickY()) ? -PS4.LStickX()+PS4.LStickY()) : 0;
-      this->data.turn_speed = trigerFilter(PS4.R2) - trigerFilter(PS4.L2);
+      this->data.FRBL_speed = stickFilter(PS4.LStickX(),PS4.LStickY()) ? PS4.LStickX()+PS4.LStickY() : 0;
+      this->data.FLBR_speed = stickFilter(PS4.LStickX(),PS4.LStickY()) ? -PS4.LStickX()+PS4.LStickY() : 0;
+      this->data.turn_speed = trigerFilter(PS4.L2) - trigerFilter(PS4.R2);
       return true;
     }
     else{

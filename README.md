@@ -73,7 +73,7 @@ classDiagram
         +void attach();
         +void apply();
         +void set_speed();
-        +int get_speed();
+        +int get_speed() speed;
     }
     class Accelarator~T~{
         +T apply(T current, T target)

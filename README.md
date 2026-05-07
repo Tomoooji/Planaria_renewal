@@ -29,19 +29,23 @@ MecanumDriver -.-> MotorDriver;
 ```mermaid
 classDiagram
     direction LR
-    Controller ..> MecanumDriver
-    Controller *-- info
-    Controller *-- config
+    Controller_PS4 ..> MecanumDriver
+    Controller_PS4 *-- info
+    Controller_PS4 *-- config
     MecanumDriver *-- gain
     MecanumDriver *-- AnalogMotorDriver
     MecanumDriver *-- Accelarator
 
-    class Controller{
+    class Controller_PS4{
         -char[] _mac_address
         -info data;
         -config gain;
         +bool begin();
         +bool update();
+        +info get_data();
+        +config get_gain();
+        -float _filter();
+        -int _filter();
     }
     class info{
         <<struct>>
@@ -74,10 +78,12 @@ classDiagram
         +void attach();
         +void apply();
         +void set_speed();
-        +int get_speed() speed;
+        +int get_speed();
     }
     class Accelarator~T~{
-        +T apply()
+        -T _accel;
+        -T _decel;
+        +T apply();
     }
 
 ```

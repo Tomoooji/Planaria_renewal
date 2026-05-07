@@ -32,42 +32,42 @@ Accelarator --> MotorDriver;
 classDiagram
     direction LR
     Controller_PS4 ..> MecanumDriver
-    Controller_PS4 *-- info
-    Controller_PS4 *-- config
-    MecanumDriver *-- gain
+    Controller_PS4 *-- InputData
+    Controller_PS4 *-- ConfigData_ps4
+    MecanumDriver *-- ConfigData_leg
     MecanumDriver *-- AnalogMotorDriver
     MecanumDriver *-- Accelarator
 
     class Controller_PS4{
         -char[] _mac_address
-        -info data;
-        -config gain;
+        -InputData input;
+        -ConfigData config;
         +bool begin();
         +bool update();
-        +info get_data();
-        +config get_gain();
+        +InputData get_input();
+        +ConfigData_ps4 get_config();
         -float/int _filter();
     }
-    class info{
+    class InputData{
         <<struct>>
         +float angle;
         +int dist;
         +int turn;
     }
-    class config{
+    class ConfigData_ps4{
         <<struct>>
         +int ignore_range_stick;
         +int ignore_limit_triger;
     }
     class MecanumDriver{
-        -gain config;
+        -ConfigData_leg config;
         -AnalogMotorDriver[4] motors;
         -Accelarator~int~ acceler;
         +void begin();
         +void update();
         +void move();
     }
-    class gain{
+    class ConfigData_leg{
         <<struct>>
         +bool reversed[4];
         +int max_speed[4];

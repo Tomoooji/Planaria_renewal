@@ -12,7 +12,7 @@ private:
     int turn; // -255(right)~255(left) :ラジアンと同じ
   } input;
 
-  struct ConfigData{
+  struct ConfigData_ps4{
     int ignore_range_stick;
     int ignore_limit_triger;
     //int ignore_time_button;
@@ -47,7 +47,7 @@ public:
     return this->input;
   }
 
-  ConfigData& get_config(){
+  ConfigData_ps4& get_config(){
     return this->config;
   }
 

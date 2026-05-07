@@ -18,13 +18,6 @@ Planaria_renewal/
 └─ README.md
 ```
 
-
-```mermaid
-graph TD;
-PS4Controller -->　Accelarator;
-Accelarator --> MecanumWheel;
-```
-
 ```mermaid
 classDiagram
     Controller *-- info
@@ -80,6 +73,12 @@ classDiagram
 
 ```
 ## 参考資料
+
+```mermaid
+graph TD;
+PS4Controller -->　Accelarator;
+Accelarator --> MecanumWheel;
+```
 
 ### PS4コントローラー用ライブラリ
 

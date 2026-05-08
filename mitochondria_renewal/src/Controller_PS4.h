@@ -9,12 +9,16 @@ private:
   struct InputData{
     float angle; // radian
     int dist; // 0~255
+    //int dist_level; // 0,85,100,200みたいな離散値
     int turn; // -255(right)~255(left) :ラジアンと同じ
+    //int turn_level;
+    //bool mode_accel; // ボタンに割り振った真偽値とか
   } input;
 
   struct ConfigData_ps4{
     int ignore_range_stick;
     int ignore_limit_triger;
+    //int step_stick_level[]; // 入力側の境界
     //int ignore_time_button;
   } config;
   

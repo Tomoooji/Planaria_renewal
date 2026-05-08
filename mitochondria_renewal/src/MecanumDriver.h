@@ -21,11 +21,11 @@ private:
 
 public:
   Mecanum():acceler(5){}
- 
+
   void begin(const uint8_t pin_FL[], const uint8_t pin_BL[], const uint8_t pin_BR[], const uint8_t pin_FR[]){
-     this->motors[FRONTLEFT].attach(pin_FL, this->config.max_speed[FRONTLEFT]);
-      this->motors[BACKLEFT].attach(pin_BL, this->config.max_speed[BACKLEFT]);
-     this->motors[BACKRIGHT].attach(pin_BR, this->config.max_speed[BACKRIGHT]);
+    this->motors[FRONTLEFT].attach(pin_FL, this->config.max_speed[FRONTLEFT]);
+    this->motors[BACKLEFT].attach(pin_BL, this->config.max_speed[BACKLEFT]);
+    this->motors[BACKRIGHT].attach(pin_BR, this->config.max_speed[BACKRIGHT]);
     this->motors[FRONTRIGHT].attach(pin_FR, this->config.max_speed[FRONTRIGHT]);
   }
 

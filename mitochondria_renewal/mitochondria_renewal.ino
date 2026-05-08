@@ -1,5 +1,5 @@
-#include "Controller_PS4.h"
-#include "MecanumDriver.h"
+#include "src/Controller_PS4.h"
+#include "src/MecanumDriver.h"
 
 constexpr char mac[] = "00:00:00:00:00:00";
 Controller_PS4 ds4(mac);

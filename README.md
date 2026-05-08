@@ -7,16 +7,18 @@ Planaria(レスコン2号機)をPS4コントローラーで動かそう！
 ### ファイル構成
 ```text
 Planaria_renewal/
-├─ src/
-│  └─ mitochondria_renewal/
-│     ├─ mitochondria_renewal.ino   # 本体
-│     ├─ Controller_PS4.h           # 入力受付
-│     ├─ MecanumDriver.h            # 出力割り当て
-│     ├─ Accelarator.h              # 加速度処理
-│     └─ AnalogMotorDriver.h        # モタドラ用ライブラリ
+├─ mitochondria_renewal/
+│  ├─ src/
+│  │  ├─ Controller_PS4.h       # 入力受付
+│  │  ├─ MecanumDriver.h        # 出力割り当て
+│  │  ├─ Accelarator.h          # 加速度処理
+│  │  └─ AnalogMotorDriver.h    # モタドラ用ライブラリ
+│  └─ mitochondria_renewal.ino  # 本体
 ├─ LICENSE
 └─ README.md
 ```
+srcフォルダを中に作ることで一緒にコンパイルしてくれる(中でもう一段階ネストすることも可能)
+
 ### 処理のイメージ
 どうも[ブラウザ上](https://github.com/Tomoooji/Planaria_renewal/tree/example/tomoooji/README.md)じゃないと図にならないみたい
 ```mermaid
@@ -101,3 +103,5 @@ https://www.notion.so/1-278b1970b55980219e2ada5c3cee0d8a?source=copy_link#339b19
 
 https://www.notion.so/ESP32-_-2023-bd5f8e22e0a543179b6db6474eb22fe5?source=copy_link
 ぶっちゃけあんまり参考にはならないです。悪しからず
+---
+最終更新:2026-05-08

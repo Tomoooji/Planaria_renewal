@@ -3,7 +3,7 @@
 
 class Controller_Serial{
 private:
-  bool _ser2; // true:Serial2 / false:Serial
+  HardwareSerial& Ser;
   int _baudrate;
   
   struct InputData{
@@ -14,10 +14,17 @@ private:
 
   //struct ConfigData{} config;
 
-  public:
-  Controller_Serial(int baudrate,bool use_serial2=false):_baudrate(baudrate),_ser2(use_serial2){}
-  bool begin(){}
-  bool updata(){}
+public:
+  Controller_Serial(HardwareSerial& serial, int baudrate):SER(serial),_baudrate(baudrate){}
+  bool begin(){
+    this->SER.begin(this->_baodrate);
+  }
+  bool begin(const uint8_t Rx, const uint8_t Tx){
+    this->SER.begin(this->_baodrate, SERIAL_8N1, Rx, Yx); //8ビット、パリティなし、ストップビット1（8N1）
+  }
+  bool update(){
+    
+  }
   const InputData& get_input(){return this->input;}
   //ConfigData& get_config(){return this->config;}
 };

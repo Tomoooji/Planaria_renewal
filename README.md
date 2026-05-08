@@ -9,13 +9,13 @@ Planaria(レスコン2号機)をPS4コントローラーで動かそう！
 
 ```text
 Planaria_renewal/
-├─ mitochondria_renewal/
+├─ planaria_renewal/
 │  ├─ src/
 │  │  ├─ Controller_PS4.h       # 入力受付
 │  │  ├─ MecanumDriver.h        # 出力割り当て
 │  │  ├─ Accelarator.h          # 加速度処理
 │  │  └─ AnalogMotorDriver.h    # モタドラ制御
-│  └─ mitochondria_renewal.ino  # 本体
+│  └─ planaria_renewal.ino      # 本体
 ├─ LICENSE
 └─ README.md
 ```

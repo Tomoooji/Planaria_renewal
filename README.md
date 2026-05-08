@@ -6,6 +6,19 @@ Planaria(レスコン2号機)をPS4コントローラーで動かそう！
 - 2026-05-08 ファイル構造を整理
 
 ## ファイル構成
+```text
+Planaria_renewal/
+├─ mitochondria_renewal/
+│  ├─ src/
+│  │  └─ Dummy
+│  └─ mitochondria_renewal.ino
+├─ connecting_test/
+│  └─connecting_test.ino
+├─ LICENSE
+└─ README.md
+```
+
+srcフォルダを中に作ることで一緒にコンパイルしてくれる(中でもう一段階ネストすることも可能)
 
 ## 実行環境
 - ArduinoIDE(ver.)

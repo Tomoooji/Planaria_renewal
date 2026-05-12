@@ -13,8 +13,8 @@ private:
   };
 
   struct ConfigData_leg{
-    bool reversed[4];
-    int max_speed[4];
+    bool reversed[4] = {false,false,false,false};
+    int max_speed[4] = {};
   } config;
 
   Accelarator<int> acceler;

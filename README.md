@@ -48,12 +48,12 @@ Accelarator -->|speed| MotorDriver;
 ```mermaid
 classDiagram
     direction TD
-    Controller_PS4 *-- InputData
-    MecanumDriver *-- ConfigData_leg
-    Controller_PS4 *-- ConfigData_ps4
+    Controller_PS4 *--> InputData
+    MecanumDriver *--> ConfigData_leg
+    Controller_PS4 *--> ConfigData_ps4
     Controller_PS4 ..> MecanumDriver
-    MecanumDriver *-- AnalogMotorDriver
-    MecanumDriver *-- Accelarator
+    MecanumDriver *--> AnalogMotorDriver
+    MecanumDriver *--> Accelarator
 
     class Controller_PS4{
         -char[] mac_address

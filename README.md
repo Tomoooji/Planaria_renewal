@@ -27,10 +27,10 @@ srcフォルダを中に作ることで一緒にコンパイルしてくれる(�
 
 ```mermaid
 graph TD;
-PS4Controller --> MecanumDriver; 
-MecanumDriver -.-> MotorDriver;
-MecanumDriver --> Accelarator;
-Accelarator --> MotorDriver;
+PS4Controller -->|angle,dist,turn| MecanumDriver;
+MecanumDriver -->|direction| MotorDriver;
+MecanumDriver -->|speed| Accelarator;
+Accelarator -->|speed| MotorDriver;
 ```
 
 コントローラーからの入力をController側で受けて、inputに格納 -> loop関数内でDriverの関数に引数として渡す形。入出力の設定(モーターのゲインとかジョイスティックの閾値とか)はそれぞれのクラスのconfigに格納して随時参照する。

@@ -104,7 +104,6 @@ classDiagram
         -T _decel;
         +T apply();
     }
-
 ```
 
 ## 参考資料
@@ -123,4 +122,4 @@ https://www.notion.so/ESP32-_-2023-bd5f8e22e0a543179b6db6474eb22fe5?source=copy_
 
 ---
 
-最終更新:2026-05-08
+最終更新:2026-05-12

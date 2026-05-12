@@ -23,7 +23,7 @@ private:
   } config;
   
   float _filter(int valX, int valY){
-    return sq(valX)+sq(valY) > sq(this->config.ignore_range_stick)? sqrt(sq(valX)+sq(valY)): 0;
+    return sq(valX)+sq(valY) > sq(this->config.ignore_range_stick)? constrain(sqrt(sq(valX)+sq(valY)),0,127.5): 0;
   }
 
   int _filter(int val){

@@ -13,8 +13,13 @@ private:
   };
 
   struct ConfigData_leg{
+<<<<<<< HEAD:planaria_renewal/src/MecanumDriver.h
     bool reversed[4] = {false,false,false,false}; //={}でもいいが,,,
     int max_speed[4] = {}; //0にしとくと255にしてくれる
+=======
+    bool reversed[4] = {false,false,false,false};
+    int max_speed[4] = {};
+>>>>>>> 79240d1 (.):mitochondria_renewal/src/MecanumDriver.h
   } config;
 
   Accelarator<int> acceler;

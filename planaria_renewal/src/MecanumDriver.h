@@ -59,5 +59,8 @@ public:
       motor.move();
     }
   }
-
+  
+  ConfigData_leg& get_config(){
+    return this->config;
+  }
 };

@@ -10,17 +10,14 @@ Planaria(レスコン2号機)をPS4コントローラーで動かそう！
 ```text
 Planaria_renewal/
 ├─ planaria_renewal/
-│  ├─ src/
-│  │  ├─ Controller_PS4.h       # 入力受付
-│  │  ├─ MecanumDriver.h        # 出力割り当て
-│  │  ├─ Accelarator.h          # 加速度処理
-│  │  └─ AnalogMotorDriver.h    # モタドラ用ライブラリ
-│  └─ planaria_renewal.ino      # 本体
+│  ├─ Controller_PS4.h       # 入力受付
+│  ├─ MecanumDriver.h        # 出力割り当て
+│  ├─ Accelarator.h          # 加速度処理
+│  ├─ AnalogMotorDriver.h    # モタドラ用ライブラリ
+│  └─ planaria_renewal.ino   # 本体
 ├─ LICENSE
 └─ README.md
 ```
-
-srcフォルダを中に作ることで一緒にコンパイルしてくれる(中でもう一段階ネストすることも可能)
 
 ### 処理のイメージ
 
@@ -84,6 +81,7 @@ classDiagram
         +void begin();
         +void update();
         +void move();
+        +ConfigData_leg get_config();
     }
     class ConfigData_leg{
         <<struct>>

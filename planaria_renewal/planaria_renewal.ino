@@ -1,17 +1,24 @@
-#include "src/Controller_PS4.h"
-#include "src/MecanumDriver.h"
+#include "Controller_PS4.h"
+#include "MecanumDriver.h"
 
 constexpr char mac[] = "00:00:00:00:00:01";
 Controller_PS4 dualshock4(mac);
 
-constexpr uint8_t FLpin[] = {14,27};
-constexpr uint8_t BLpin[] = {26,25};
-constexpr uint8_t BRpin[] = {33,32};
-constexpr uint8_t FRpin[] = {16,17};
+constexpr uint8_t FLpin[] = {27,14};
+constexpr uint8_t BLpin[] = {25,26};
+constexpr uint8_t BRpin[] = {32,33};
+constexpr uint8_t FRpin[] = {17,16};
 Mecanum leg;
+//leg.get_config().reversed[Mecanum::FRONTLEFT]=true;
 
 void setup(){
-  //leg.get_config().reversed[Mecanum::FRONTLEFT]=true;
+  dualshock4.get_config().ignore_range_stick=50;
+  dualshock4.get_config().ignore_limit_triger=50;
+  leg.get_config().max_speed[0]=170;
+  leg.get_config().max_speed[1]=170;
+  leg.get_config().max_speed[2]=170;
+  leg.get_config().max_speed[3]=170;
+
   if(!dualshock4.begin()) return;
   leg.begin(FLpin,BLpin,BRpin,FRpin);
 }

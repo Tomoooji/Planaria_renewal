@@ -1,6 +1,7 @@
 # Planaria
 
-Planaria(レスコン2号機)をPS4コントローラーで動かそう！
+Planaria(レスコン2号機)をPS4コントローラーで動かそう！  
+このブランチ(example/tomoooji)は金栄が例として書いてみたコードです。
 
 ## やってみた
 
@@ -35,7 +36,7 @@ Accelarator -->|speed| MotorDriver;
 
 コントローラーからの入力をController側で受けて、inputに格納 -> loop関数内でDriverの関数に引数として渡す形。入出力の設定(モーターのゲインとかジョイスティックの閾値とか)はそれぞれのクラスのconfigに格納して随時参照する。
 
-> 機能追加時は
+> **機能追加時は..**
 >
 > - 入力側:Controllerのinputに項目を増やしてupdateに更新処理を書き、入力用設定値をconfigに書く
 > - 出力側:Driverを増やすか改造して、configには出力用の設定値を書く
@@ -121,4 +122,4 @@ https://www.notion.so/ESP32-_-2023-bd5f8e22e0a543179b6db6474eb22fe5?source=copy_
 
 ---
 
-最終更新:2026-05-12
+最終更新:2026-05-20

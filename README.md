@@ -14,7 +14,7 @@ Planaria_renewal/
 │  │  ├─ Controller_PS4.h       # 入力受付
 │  │  ├─ MecanumDriver.h        # 出力割り当て
 │  │  ├─ Accelarator.h          # 加速度処理
-│  │  └─ AnalogMotorDriver.h    # モタドラ制御
+│  │  └─ AnalogMotorDriver.h    # モタドラ用ライブラリ
 │  └─ planaria_renewal.ino      # 本体
 ├─ LICENSE
 └─ README.md

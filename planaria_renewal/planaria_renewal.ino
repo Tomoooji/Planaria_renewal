@@ -1,15 +1,19 @@
 #include "Controller_PS4.h"
 #include "MecanumDriver.h"
+#include "AnalogMotorDriver.h"
 
 constexpr char mac[] = "00:00:00:00:00:01";
 Controller_PS4 dualshock4(mac);
 
-constexpr uint8_t FLpin[] = {27,14};
-constexpr uint8_t BLpin[] = {25,26};
-constexpr uint8_t BRpin[] = {32,33};
-constexpr uint8_t FRpin[] = {17,16};
+constexpr uint8_t FLpin[] = {18,5};
+constexpr uint8_t BLpin[] = {26,27};
+constexpr uint8_t BRpin[] = {12,14};
+constexpr uint8_t FRpin[] = {2,15};
+constexpr uint8_t Pantapin[] = {25,33};
+
 int leg_max[] = {170,170,170,170};
 Mecanum leg;
+AnalogMotor panta;
 
 void setup(){
   dualshock4.get_config().ignore_range_stick = 50;
@@ -23,6 +27,8 @@ void setup(){
 
   if(!dualshock4.begin()) return;
   leg.begin(FLpin,BLpin,BRpin,FRpin);
+
+  panta.attach(Pantapin);
 }
 
 void loop(){
@@ -32,9 +38,13 @@ void loop(){
         dualshock4.get_input().dist,
         dualshock4.get_input().turn
     );
+    panta.set_speed(dualshock4.get_input().panta*100);
+
   }
   else{
     leg.update(0, 0, 0);
+    panta.set_speed();
   }
   leg.move();
+  panta.move();
 }

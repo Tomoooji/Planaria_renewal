@@ -13,6 +13,7 @@ private:
     int turn; // -255(right)~255(left) :ラジアンと同じ
     //int turn_level;
     //bool mode_accel; // ボタンに割り振った真偽値とか
+    int panta;
   } input;
 
   struct ConfigData_ps4{
@@ -42,6 +43,7 @@ public:
       this->input.angle = atan2(PS4.LStickY(),PS4.LStickX());
       this->input.dist = _filter(PS4.LStickY(),PS4.LStickX())*2;
       this->input.turn = _filter(PS4.L2Value()) - _filter(PS4.R2Value());
+      this->input.turn = PS4.Up() - PS4.Down();
       return true;
     }
     return false;

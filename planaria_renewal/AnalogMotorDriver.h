@@ -13,7 +13,7 @@ class AnalogMotor_Base{
   AnalogMotor_Base(const int max=255):max(max){}
   virtual void attach(const uint8_t pins[], const int max=0)=0;
   virtual void move() = 0;
-  void set_speed(int speed){
+  void set_speed(int speed = 0){
     this->_speed = constrain(abs(speed), 0, this->max) * sign(speed);
   }
   void move(int speed){

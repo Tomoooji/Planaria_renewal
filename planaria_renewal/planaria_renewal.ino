@@ -16,10 +16,6 @@ void setup(){
   dualshock4.get_config().ignore_limit_triger = 50;
 
   *leg.get_config().max_speed = *leg_max;
-  //leg.get_config().max_speed[0] = 170;
-  //leg.get_config().max_speed[1] = 170;
-  //leg.get_config().max_speed[2] = 170;
-  //leg.get_config().max_speed[3] = 170;
 
   if(!dualshock4.begin()) return;
   leg.begin(FLpin,BLpin,BRpin,FRpin);

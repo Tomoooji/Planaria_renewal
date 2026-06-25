@@ -14,7 +14,7 @@ private:
     //int turn_level;
     //bool mode_accel; // ボタンに割り振った真偽値とか
   } input;
-
+  
   struct ConfigData_ps4{
     int ignore_range_stick;
     int ignore_limit_triger;
@@ -22,13 +22,22 @@ private:
     //int ignore_time_button;
   } config;
   
-  float _filter(int valX, int valY){
-    return sq(valX)+sq(valY) > sq(this->config.ignore_range_stick)? constrain(sqrt(sq(valX)+sq(valY)),0,127.5): 0;
-  }
-
-  int _filter(int val){
+  int isTrigered(int val){
     return (val > this->config.ignore_limit_triger)? val: 0;
   }
+
+  bool isTilted(int valX, int valY){
+    return sq(valX)+sq(valY) > sq(this->config.ignore_range_stick)? : 0;
+  }
+
+  float getAngle(int valX, int valY){
+    return this->isTilted()? atan2(valY,valX):0;
+  }
+
+  float getRadius(int valX, int valY){
+    return this->isTilted()? constrain(sqrt(sq(valX)+sq(valY)),0,127.5): 0;
+  }
+
   
 public:
   Controller_PS4(const char* mac):mac_address(mac){}
